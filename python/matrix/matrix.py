@@ -1,17 +1,12 @@
 class Matrix:
-    matrix = []
     def __init__(self, matrix_string):
-        global matrix
-        matrix = matrix_string.split('\n')
+        self.matrix = matrix_string.split('\n')
+        self.matrix = [i.split() for i in self.matrix]
+        self.matrix = [[int(i) for i in j] for j in self.matrix]
 
     def row(self, index):
-        global matrix
-        rowchar = matrix[index - 1]
-        row = [int(i) for i in rowchar.split()]
-        return row
+        return self.matrix[index - 1]
 
     def column(self, index):
-        global matrix
-        mat = [m.split() for m in matrix]
-        col = [int(i[index - 1]) for i in mat]
-        return col
+        return [i[index - 1] for i in self.matrix]
+
