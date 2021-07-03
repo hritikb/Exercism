@@ -6,6 +6,7 @@ def distance(strand_a, strand_b):
         raise ValueError('Both the sequences must be of same length')
     
     mapping = zip(strand_a, strand_b)
-    lst = [True for i in mapping if i[0] != i[1]]
-    return len(lst)
-
+    
+                                                            # sum([True, False, True]) gives 2.
+    return sum((i[0] != i[1] for i in mapping))             # generator comprehension is being used 
+                                                            # instead of list comprehension.
