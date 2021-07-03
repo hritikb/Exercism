@@ -8,5 +8,5 @@ def distance(strand_a, strand_b):
     mapping = zip(strand_a, strand_b)
     
                                                             # sum([True, False, True]) gives 2.
-    return sum((i[0] != i[1] for i in mapping))             # generator comprehension is being used 
+    return sum(i != j for i, j in mapping)             # generator comprehension is being used 
                                                             # instead of list comprehension.
